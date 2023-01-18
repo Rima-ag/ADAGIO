@@ -18,4 +18,4 @@ RUN cd audio_adversarial_examples \
     && python3 -u make_checkpoint.py; ls /data/models
 WORKDIR /usr/src/app
 ENTRYPOINT ["celery"]
-CMD ["worker", "-A", "adagio_celery_attack", "-l", "info", "-c", "1", "-Ofair"]
+CMD ["-A", "adagio_celery_attack", "worker", "-l", "info", "-c", "1", "-Ofair"]

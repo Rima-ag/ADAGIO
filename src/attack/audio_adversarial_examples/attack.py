@@ -251,7 +251,7 @@ def do_attack(filename, target_transcription, current_state, update_state_fn):
         'l2penalty': float('inf'),
         'mp3': False}
     args = namedtuple('args', sorted(args.keys()))(**args)
-    print args
+    print(args)
 
     gpu_options = tf.GPUOptions(allow_growth=True, per_process_gpu_memory_fraction=1.)
     with tf.Graph().as_default():

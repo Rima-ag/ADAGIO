@@ -1,7 +1,7 @@
 FROM jrottenberg/ffmpeg:4.0-ubuntu
 
 RUN yes | apt-get update
-RUN yes | apt-get install python-pip
+RUN yes | apt-get install python3-pip
 
 RUN mkdir -p /data/uploaded
 RUN mkdir -p /data/preprocessed
@@ -12,4 +12,4 @@ WORKDIR /usr/src/app
 RUN pip install -r requirements.txt
 
 ENTRYPOINT ["celery"]
-CMD ["worker", "-A", "adagio_celery_ffmpeg", "-l", "info", "-c", "5", "-Ofair"]
+CMD ["-A", "adagio_celery_ffmpeg", "worker", "-l", "info", "-c", "5", "-Ofair"]

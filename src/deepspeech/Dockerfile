@@ -13,4 +13,4 @@ RUN wget https://github.com/mozilla/DeepSpeech/releases/download/v0.1.0/deepspee
 WORKDIR /usr/src/app
 RUN pip install -r requirements.txt
 ENTRYPOINT ["celery"]
-CMD ["worker", "-A", "adagio_celery_deepspeech", "-l", "info", "-c", "1", "-Ofair"]
+CMD ["-A", "adagio_celery_deepspeech", "worker", "-l", "info", "-c", "1", "-Ofair"]
