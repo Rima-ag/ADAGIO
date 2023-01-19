@@ -9,7 +9,7 @@ do
 FILENAME="$1_$BANDWIDTH.wav"
 echo "Creating $FILENAME"
 encodec -r -f -b $BANDWIDTH $1 ./.out.wav
-ffmpeg -i ./.out.wav -acodec pcm_s16le -ac 16000 $FILENAME
+ffmpeg -i ./.out.wav -acodec pcm_s16le -ac 1 -ar 16000 $FILENAME
 done
 
 rm ./.out.wav
